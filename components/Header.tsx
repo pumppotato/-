@@ -5,9 +5,10 @@ interface HeaderProps {
   onMailClick: () => void;
   hasNewMail: boolean;
   nickname: string;
+  onReset?: () => void;
 }
 
-const Header: React.FC<HeaderProps> = ({ onMailClick, hasNewMail, nickname }) => {
+const Header: React.FC<HeaderProps> = ({ onMailClick, hasNewMail, nickname, onReset }) => {
   return (
     <header className="bg-white border-b border-gray-200 sticky top-0 z-50">
       <div className="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
@@ -29,7 +30,14 @@ const Header: React.FC<HeaderProps> = ({ onMailClick, hasNewMail, nickname }) =>
           </div>
         </div>
 
-        <div className="flex items-center gap-6">
+        <div className="flex items-center gap-4 md:gap-6">
+          <button 
+            onClick={onReset}
+            className="text-[10px] text-gray-400 hover:text-red-500 transition-colors"
+            title="카페 탈퇴 (초기화)"
+          >
+            카페 탈퇴
+          </button>
           <button className="text-gray-600 hover:text-green-600 relative">
             <i className="far fa-bell text-xl"></i>
           </button>

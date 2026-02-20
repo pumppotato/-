@@ -31,6 +31,14 @@ const App: React.FC = () => {
     localStorage.setItem('cafe_nickname', name);
   };
 
+  const handleReset = () => {
+    if (window.confirm('카페를 탈퇴하시겠습니까? 가입 정보가 초기화됩니다.')) {
+      localStorage.removeItem('cafe_nickname');
+      setIsJoined(false);
+      setNickname('');
+    }
+  };
+
   if (!isJoined) {
     return <JoinScreen onJoin={handleJoin} />;
   }
@@ -43,7 +51,8 @@ const App: React.FC = () => {
           setIsMailOpen(true);
           setHasNewMail(false);
         }} 
-        hasNewMail={hasNewMail} 
+        hasNewMail={hasNewMail}
+        onReset={handleReset}
       />
       
       <main className="flex-1 max-w-6xl mx-auto w-full flex flex-col md:flex-row gap-6 p-4 md:p-6">
