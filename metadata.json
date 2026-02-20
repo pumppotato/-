@@ -1,0 +1,7 @@
+{
+  "name": "성하리 공식 카페 ",
+  "description": "정겨운 네이버 카페 스타일의 성하리 공식 커뮤니티입니다. 마을 주민들과 소통하고 건의사항을 남겨보세요.",
+  "requestFramePermissions": [
+    "microphone"
+  ]
+}
